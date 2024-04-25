@@ -1,0 +1,49 @@
+/front_end/node_modules
+/front_end/.pnp
+/front_end/.pnp.js
+/front_end/coverage
+/front_end/build
+/front_end/.DS_Store
+/front_end/.env.local
+/front_end/.env.development.local
+/front_end/.env.test.local
+/front_end/.env.production.local
+/front_end/npm-debug.log*
+/front_end/yarn-debug.log*
+/front_end/yarn-error.log*
+
+###############################################
+
+/back_end/HELP.md
+/back_end/target/
+!/back_end/.mvn/wrapper/maven-wrapper.jar
+!/back_end/**/src/main/**/target/
+!/back_end/**/src/test/**/target/
+
+### STS ###
+/back_end/.apt_generated
+/back_end/.classpath
+/back_end/.factorypath
+/back_end/.project
+/back_end/.settings
+/back_end/.springBeans
+/back_end/.sts4-cache
+
+### IntelliJ IDEA ###
+/back_end/.idea
+/back_end/*.iws
+/back_end/*.iml
+/back_end/*.ipr
+
+### NetBeans ###
+/back_end/nbproject/private/
+/back_end/nbbuild/
+/back_end/dist/
+/back_end/nbdist/
+/back_end/.nb-gradle/
+/back_end/build/
+!/back_end/**/src/main/**/build/
+!/back_end/**/src/test/**/build/
+
+### VS Code ###
+/back_end/.vscode/
