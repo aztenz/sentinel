@@ -27,9 +27,6 @@ public class RegisterRQ {
     @NotBlank(message = PASSWORD_IS_MANDATORY)
     private String password;
 
-    @NotNull(message = ROLE_IS_MANDATORY)
-    private Role role;
-
     @NotNull(message = EMAIL_IS_MANDATORY)
     @NotBlank(message = EMAIL_IS_MANDATORY)
     @Email(regexp = EMAIL_REGEX, message = EMAIL_NOT_VALID)
