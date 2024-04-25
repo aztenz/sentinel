@@ -1,6 +1,6 @@
-package Service;
+package com.j2o.sentinel.service;
 
-import Entity.Product;
+import com.j2o.sentinel.entity.Product;
 
 import java.util.List;
 

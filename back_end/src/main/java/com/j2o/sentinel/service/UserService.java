@@ -1,7 +1,6 @@
-package Service;
+package com.j2o.sentinel.service;
 
-import Entity.User;
-import Repository.UserRepository;
+import com.j2o.sentinel.entity.User;
 
 import java.util.List;
 

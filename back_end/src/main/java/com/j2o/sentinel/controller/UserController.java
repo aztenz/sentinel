@@ -1,7 +1,7 @@
-package Controllers;
+package com.j2o.sentinel.controller;
 
-import Entity.User;
-import Service.UserService;
+import com.j2o.sentinel.entity.User;
+import com.j2o.sentinel.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
