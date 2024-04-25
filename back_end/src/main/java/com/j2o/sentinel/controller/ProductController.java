@@ -1,6 +1,6 @@
 package com.j2o.sentinel.controller;
 
-import com.j2o.sentinel.entity.Product;
+import com.j2o.sentinel.model.Product;
 import com.j2o.sentinel.service.ProductService;
 
 import org.springframework.beans.factory.annotation.Autowired;

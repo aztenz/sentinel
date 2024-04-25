@@ -1,6 +1,6 @@
 package com.j2o.sentinel.controller;
 
-import com.j2o.sentinel.entity.Order;
+import com.j2o.sentinel.model.Order;
 import com.j2o.sentinel.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ public class OrderController {
 
     //To get all Products
     @GetMapping
-    public ResponseEntity<List<Order>> getAllOrders(){
+    public ResponseEntity<List<Orde>> getAllOrders(){
         List<Order> orders = orderServ.getAllOrders();
         ResponseEntity.ok(orders);
     }

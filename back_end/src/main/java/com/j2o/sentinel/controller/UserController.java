@@ -1,6 +1,6 @@
 package com.j2o.sentinel.controller;
 
-import com.j2o.sentinel.entity.User;
+import com.j2o.sentinel.model.User;
 import com.j2o.sentinel.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;

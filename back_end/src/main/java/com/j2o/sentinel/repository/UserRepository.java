@@ -1,8 +1,8 @@
 package com.j2o.sentinel.repository;
 
-import org.springframework.stereotype.Repository;
+import com.j2o.sentinel.model.User;
+import java.util.Optional;
 
-@Repository
-public class UserRepository {
-
+public interface UserRepository extends GenericRepository<User, Integer> {
+    Optional<User> findByUsername(String username);
 }
