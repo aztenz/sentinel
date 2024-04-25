@@ -2,8 +2,8 @@ package com.j2o.sentinel.utils;
 
 import com.j2o.sentinel.exception.ItemNotFoundException;
 import com.j2o.sentinel.model.User;
-import com.j2o.sentinel.repository.GenericRepository;
 import org.springframework.beans.BeanUtils;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 public abstract class Util {
@@ -46,7 +46,7 @@ public abstract class Util {
 
     public static <E, ID> void validateItemExistence(
             ID id,
-            GenericRepository<E, ID> genericRepository
+            JpaRepository<E, ID> genericRepository
     ) {
         try {
             if(!genericRepository.existsById(id))

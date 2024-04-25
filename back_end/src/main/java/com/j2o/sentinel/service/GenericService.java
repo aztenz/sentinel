@@ -1,16 +1,16 @@
 package com.j2o.sentinel.service;
 
 import com.j2o.sentinel.exception.ItemNotFoundException;
-import com.j2o.sentinel.repository.GenericRepository;
 import com.j2o.sentinel.utils.Util;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
 public class GenericService<
-        E, ID, R extends GenericRepository<E, ID>,
+        E, ID, R extends JpaRepository<E, ID>,
         RQ_POST, RQ_PUT, RSP_LI, RSP_DETAILED, RSP_POST, RSP_PUT> {
     private final R genericRepository;
     private final Class<E> eClass;

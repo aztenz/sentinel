@@ -38,7 +38,6 @@ public class JwtFilter extends OncePerRequestFilter {
             return;
         }
 
-        //TODO: check tokenization logic -> if the token expired, what is going to happen, cause it throws an exception
         String username = getUsernameFromToken(token);
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             authenticateUser(token, username, request);

@@ -11,6 +11,7 @@ import com.j2o.sentinel.exception.DuplicateItemException;
 import com.j2o.sentinel.exception.ItemNotFoundException;
 import com.j2o.sentinel.repository.TokenRepository;
 import com.j2o.sentinel.repository.UserRepository;
+import com.j2o.sentinel.utils.Util;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -71,11 +72,10 @@ public class AuthenticationService {
     }
 
     private User createUser(RegisterRQ registerRQ) {
-        return User.builder()
-                .username(registerRQ.getUsername())
-                .password(passwordEncoder.encode(registerRQ.getPassword()))
-                .role(Role.CUSTOMER)
-                .build();
+        User user = Util.cloneObject(registerRQ, User.class);
+        user.setRole(Role.CUSTOMER);
+        user.setPassword(passwordEncoder.encode(registerRQ.getPassword()));
+        return user;
     }
 
     private TokenDTO generateAuthenticationToken(String username) {

@@ -7,6 +7,7 @@ CREATE TABLE users (
     username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
+    role VARCHAR(40) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
@@ -20,14 +21,17 @@ CREATE TABLE products (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
--- CREATE TABLE sessions (
---     id INT PRIMARY KEY AUTO_INCREMENT,
---     user_id INT NOT NULL,
---     token VARCHAR(255) UNIQUE NOT NULL,
---     expires_at TIMESTAMP NOT NULL,
---     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
---     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
--- );
+CREATE TABLE tokens (
+  id int NOT NULL AUTO_INCREMENT,
+  user_id int NOT NULL,
+  token varchar(256) NOT NULL,
+  token_type varchar(50) NOT NULL,
+  revoked tinyint(1) NOT NULL,
+  PRIMARY KEY (id),
+  UNIQUE KEY token (token),
+  KEY FK_Tokens_User (user_id),
+  CONSTRAINT FK_Tokens_User FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 CREATE TABLE orders (
     id INT PRIMARY KEY AUTO_INCREMENT,

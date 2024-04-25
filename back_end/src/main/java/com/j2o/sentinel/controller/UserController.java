@@ -1,8 +1,12 @@
 package com.j2o.sentinel.controller;
 
+import com.j2o.sentinel.dto.response.user.UserDetails;
+import com.j2o.sentinel.dto.response.user.UserListItem;
 import com.j2o.sentinel.model.User;
 import com.j2o.sentinel.service.UserService;
 
+import com.j2o.sentinel.utils.Util;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,46 +14,20 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/users")
 public class UserController {
+    private final UserService userService;
 
-    @Autowired
-    private UserService userServ;
+    @GetMapping("/profile")
+    public ResponseEntity<UserDetails> getProfile() {
+        int userId = Util.getCurrentUserId();
+        return ResponseEntity.ok(userService.getItem(userId));
+    }
 
-    //To get all users
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers(){
-        List<User> users = userServ.getAllUsers();
-        ResponseEntity.ok(users);
-    }
-
-    //To get users by ID
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
-        User user = userServ.getUserById(id);
-        return ResponseEntity.ok(user);
-    }
-
-    //To create a new user
-    @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user){
-        User newUser = userServ.createUser(user);
-        return ResponseEntity.status(HttpStatus.CREATED).body(newUser);
-
-    }
-
-    //To update an existing user
-    @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
-        User updatedUser = userServ.updateUser(id, user);
-        return ResponseEntity.ok(updatedUser);
-    }
-
-    //To delete an existing user
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        userServ.deleteUser(id);
-        return ResponseEntity.noContent().build();
+    public ResponseEntity<List<UserListItem>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAll());
     }
 }
