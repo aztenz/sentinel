@@ -3,6 +3,8 @@ package com.j2o.sentinel.aspect;
 import com.j2o.sentinel.dto.error.GenericErrorResponse;
 import com.j2o.sentinel.exception.DuplicateItemException;
 import com.j2o.sentinel.exception.ItemNotFoundException;
+import io.jsonwebtoken.ExpiredJwtException;
+import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -17,6 +19,9 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class RestExceptionHandler {
+
+    private static final String JWT_TOKEN_EXPIRED = "jwt token expired";
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationException(
@@ -32,7 +37,7 @@ public class RestExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler
+    @ExceptionHandler(DuplicateItemException.class)
     public ResponseEntity<GenericErrorResponse> duplicateItem(
             DuplicateItemException e
     ) {
@@ -53,6 +58,14 @@ public class RestExceptionHandler {
             BadCredentialsException e
     ) {
         return handleGenericException(e.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler
+    public ResponseEntity<GenericErrorResponse> badCredentials(
+            ExpiredJwtException e
+    ) {
+        return handleGenericException(JWT_TOKEN_EXPIRED, HttpStatus.BAD_REQUEST);
     }
 
     private ResponseEntity<GenericErrorResponse> handleGenericException(

@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,10 +18,12 @@ public class RegisterRQ {
     private static final String EMAIL_IS_MANDATORY = "email is mandatory";
     private static final String EMAIL_REGEX = "^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
     private static final String EMAIL_NOT_VALID = "this is not a valid email";
+    private static final String USERNAME_REGEX = "^[a-zA-Z][a-zA-Z0-9]*$";
     @Valid
 
     @NotNull(message = USERNAME_IS_MANDATORY)
     @NotBlank(message = USERNAME_IS_MANDATORY)
+    @Pattern(regexp = USERNAME_REGEX)
     private String username;
 
     @NotNull(message = PASSWORD_IS_MANDATORY)

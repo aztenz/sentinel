@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "01519048-b579-471e-833c-d2361043c464",
+		"name": "sentinel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "22596623",
+		"_collection_link": "https://www.postman.com/aztenz/workspace/test/collection/22596623-01519048-b579-471e-833c-d2361043c464?action=share&source=collection_link&creator=22596623"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\",\r\n    \"email\": \"user3@user.user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\",\r\n    \"email\": \"user3@user.user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Orders",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5qb29uIiwiaWF0IjoxNzE1MjA3Mjk1LCJleHAiOjE3MTUyOTM2OTV9.TyQrJer4-a89RPvfsIOGMomVr1sbfOjcVoFyRJ9cnIsY5z9pEcfLCSK8zxeVSuSG"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\",\r\n    \"email\": \"user3@user.user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/orders/{orderId}"
+			},
+			"response": []
+		},
+		{
+			"name": "Products",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5qb29uIiwiaWF0IjoxNzE1MjA3Mjk1LCJleHAiOjE3MTUyOTM2OTV9.TyQrJer4-a89RPvfsIOGMomVr1sbfOjcVoFyRJ9cnIsY5z9pEcfLCSK8zxeVSuSG"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\",\r\n    \"email\": \"user3@user.user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/orders/{orderId}"
+			},
+			"response": []
+		},
+		{
+			"name": "Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJqYW5qb29uIiwiaWF0IjoxNzE1MjA3Mjk1LCJleHAiOjE3MTUyOTM2OTV9.TyQrJer4-a89RPvfsIOGMomVr1sbfOjcVoFyRJ9cnIsY5z9pEcfLCSK8zxeVSuSG"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"1234\",\r\n    \"email\": \"user3@user.user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:8080/api/orders/{orderId}"
+			},
+			"response": []
+		}
+	]
+}
