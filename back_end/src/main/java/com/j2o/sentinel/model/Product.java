@@ -3,13 +3,14 @@ package com.j2o.sentinel.model;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
+@NoArgsConstructor
 @Setter
 @Getter
-@Builder
 @Entity
 @Table(name = "products")
 public class Product {

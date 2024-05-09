@@ -6,20 +6,31 @@ import com.j2o.sentinel.dto.response.order.OrderDetails;
 import com.j2o.sentinel.dto.response.order.OrderListItem;
 import com.j2o.sentinel.dto.response.order.PostOrderRSP;
 import com.j2o.sentinel.dto.response.order.PutOrderRSP;
+import com.j2o.sentinel.exception.ItemNotFoundException;
+import com.j2o.sentinel.model.Order;
+import com.j2o.sentinel.model.Product;
+import com.j2o.sentinel.model.User;
+import com.j2o.sentinel.repository.ProductRepository;
 import com.j2o.sentinel.service.OrderService;
+import com.j2o.sentinel.service.ProductService;
+import com.j2o.sentinel.utils.Util;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.Date;
 import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/orders")
 public class OrderController {
+    private static final String PRODUCT_NOT_FOUND = "Product not found";
     private final OrderService orderService;
+    private final ProductRepository productRepository;
 
 //    //To get all Products
 //    @GetMapping
@@ -52,5 +63,11 @@ public class OrderController {
 //        return ResponseEntity.noContent().build();
 //    }
 
+    @PostMapping("/{productId}")
+    public ResponseEntity<PostOrderRSP> create(@PathVariable int productId) {
+        PostOrderRQ postOrderRQ = new PostOrderRQ();
+        postOrderRQ.setProductId(productId);
+        return ResponseEntity.ok(orderService.create(postOrderRQ));
+    }
 
 }

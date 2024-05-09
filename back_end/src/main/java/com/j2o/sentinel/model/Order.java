@@ -4,13 +4,14 @@ package com.j2o.sentinel.model;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
 
+@NoArgsConstructor
 @Setter
 @Getter
-@Builder
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -25,6 +26,9 @@ public class Order {
 
     @Column(name = "created_at")
     private Date createdAt;
+
+    @Column(name = "status")
+    private String status;
 
     @OneToOne
     @JoinColumn(name = "product_id")

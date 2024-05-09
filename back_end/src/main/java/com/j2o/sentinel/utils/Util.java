@@ -19,6 +19,13 @@ public abstract class Util {
                 .getId();
     }
 
+    public static User getCurrentUser() {
+        return ((User) SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getPrincipal());
+    }
+
     public static <T> T cloneObject(
             Object source,
             Class<T> targetType
