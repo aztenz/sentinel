@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './RegistrationPage.css';
 import axios from 'axios';
 
 const RegistrationPage = () => {
@@ -21,8 +22,8 @@ const RegistrationPage = () => {
   };
 
   return (
-    <div>
-      <h2>Registration Page</h2>
+    <div className="registration-container">
+      <h2>Registration </h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder="Username" onChange={handleChange} />
         <input type="email" name="email" placeholder="Email" onChange={handleChange} />
@@ -34,5 +35,6 @@ const RegistrationPage = () => {
     </div>
   );
 };
+
 
 export default RegistrationPage;

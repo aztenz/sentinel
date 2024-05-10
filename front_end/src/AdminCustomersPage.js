@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './AdminCustomersPage.css';
 
 const AdminCustomersPage = ({ authToken }) => {
   const [customers, setCustomers] = useState([]);
@@ -21,7 +22,7 @@ const AdminCustomersPage = ({ authToken }) => {
   }, [authToken]);
 
   return (
-    <div>
+    <div className="admin-customers-container">
       <h2>Admin View Customers</h2>
       {customers.length > 0 ? (
         <ul>
@@ -34,7 +35,7 @@ const AdminCustomersPage = ({ authToken }) => {
       ) : (
         <p>No customers found.</p>
       )}
-      {error && <p>{error}</p>}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 };

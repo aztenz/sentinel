@@ -1,0 +1,37 @@
+.admin-customers-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .admin-customers-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .admin-customers-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-customers-container li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  .admin-customers-container p {
+    margin: 0;
+  }
+  
+  .admin-customers-container .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  
